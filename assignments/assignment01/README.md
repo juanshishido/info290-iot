@@ -88,3 +88,31 @@ have the following structure:
 You should create a single method for each of the tasks 1.1, 1.3, 1.4, and 1.5. 
 Your Python script should call each of these methods in-order. The script
 should be executable with the command `python main.py` from the command line.
+
+#### 2 REST Web Services and User Interfaces in JavaScript
+
+In this part, you will create a website that uses JavaScript to obtain input
+from a remote source and display this input.
+
+**2.1 Obtaining and parsing XML**
+
+In this task, you should use the [BART API](http://api.bart.gov/). Using its
+API documentation, find the resource that enables you to access BART's
+real-time departure estimates. Using this resource, create a simple website
+that loads the real-time departure estimates from the Downtown Berkeley station 
+and displays a countdown (in steps of seconds) until the next train leaves
+toward Millbrae. Your website should update itself by re-loading the latest
+information from the BART API every 30 seconds.
+
+**2.2 The Same-Origin Policy**
+
+The JavaScript same-origin policy aims to prevent cross-site request forgery by 
+limiting how resources on different hosts can interact with each other.
+Knowing this, why is it possible for your website from task 2.1 to load and
+display data from the BART API? Include your answer as a comment within the
+HTML markup of your created website.
+
+**2.3 Optional: A jQuery Counter**
+
+Visualize the remaining time until the next train using the Countdown widget
+from the jQuery library.
