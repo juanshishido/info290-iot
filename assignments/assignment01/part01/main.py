@@ -1,7 +1,7 @@
 import socket
 
 
-def raw_http(host, get, port):
+def raw_http(host, get, port, as_json=False):
     """Get data using a raw HTTP request
 
     Parameters
@@ -22,7 +22,11 @@ def raw_http(host, get, port):
     """
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
-    s.send("GET %s HTTP/1.1\nHost: %s\n\n" % (get, host))
+    if as_json:
+        s.send("GET %s HTTP/1.1\nHost: %s\nAccept: application/json\n\n" %
+               (get, host))
+    else:
+        s.send("GET %s HTTP/1.1\nHost: %s\n\n" % (get, host))
     r = s.recv(1024)
     response = ""
     while len(r):
