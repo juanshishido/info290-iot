@@ -1,8 +1,8 @@
 import socket
 
 
-def raw_html(host, get, port):
-    """Get HTML using a raw HTTP request
+def raw_http(host, get, port):
+    """Get data using a raw HTTP request
 
     Parameters
     ----------
@@ -22,7 +22,7 @@ def raw_html(host, get, port):
     """
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
-    s.send("GET %s HTTP/1.0\n\n" % get)
+    s.send("GET %s HTTP/1.1\nHost: %s\n\n" % (get, host))
     r = s.recv(1024)
     response = ""
     while len(r):
