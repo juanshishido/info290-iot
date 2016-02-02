@@ -8,13 +8,13 @@ external libraries to your project, and include these libraries with your zip
 file. Please use UTF-8 encoding for your documents and avoid special
 characters.
 
-1. REST Web Services in Python
+#### 1 REST Web Services in Python
 
 Your task is to create a Python script that reads data from
 [our test API](http://russet.ischool.berkeley.edu:8084/) and pushes data to it.
 You will see different ways of how this can be done.
 
-    1. Raw HTTP Requests
+**1.1 Raw HTTP Requests**
 
 Our Web API speaks the HTTP protocol, version 1.1. In this assignment, your
 first task is to fetch a piece of data from the API using a raw HTTP request,
@@ -24,7 +24,7 @@ HTML representation of the `/posts` resource from the API. Your method should
 then display the API's raw, unparsed response on the screen (i.e. including the 
 returned HTTP headers).
 
-    2. HTTP Headers and Status Codes
+**1.2 HTTP Headers and Status Codes**
 
 From the raw HTTP response of the previous exercise, find the values of each of
 the following parameters. Summarize the meaning of each parameter in a short
@@ -44,7 +44,7 @@ dealing with the Activity Streams platform during the course project:
 * 409 Conflict
 * 415 Unsupported Media Type
 
-    3. HTTP Content Negotiation
+**1.3 HTTP Content Negotiation**
 
 So far, you only received HTML responses back from the server. A REST service
 can, however, offer several representations of the same resource. For instance, 
@@ -60,7 +60,7 @@ specifying the appropriate media type. If successful, the Web server will now
 return a JSON file that contains all forum posts. Display the raw JSON response 
 on the screen.
 
-    4. HTTP Requests using the requests Library
+**1.4 HTTP Requests using the requests Library**
 
 HTTP requests are usually not implemented by hand, but rather using one of many 
 different libraries that take care of the intricacies of the HTTP protocol and
@@ -70,7 +70,7 @@ that from the given URL) for sending the same HTTP request as you created by
 hand in task 1.3. This method should also display the JSON representation of
 the `/posts` resource on the screen.
 
-    5. Switching Gears: POSTing Data
+**1.5 Switching Gears: POSTing Data**
 
 Up until now, you have only used the HTTP GET method to obtain data from the
 API. For this task, first look up the exact semantics of a few other methods
@@ -83,7 +83,7 @@ have the following structure:
 { 'author' : 'your-name', 'message' : 'your-message' }
 ```
 
-    6. Submission Instructions for this Task
+**1.6 Submission Instructions for this Task**
 
 You should create a single method for each of the tasks 1.1, 1.3, 1.4, and 1.5. 
 Your Python script should call each of these methods in-order. The script
