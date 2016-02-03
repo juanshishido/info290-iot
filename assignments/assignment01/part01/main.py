@@ -1,13 +1,15 @@
 import socket
 
+import requests
 
-def raw_http(host, get, port, as_json=False):
+
+def http_raw(host, get, port, as_json=False):
     """Get data using a raw HTTP request
 
     Parameters
     ----------
     host : str
-        host name
+        host name (IP address)
 
     get : str
         the resource name
@@ -34,3 +36,25 @@ def raw_http(host, get, port, as_json=False):
         r = s.recv(1024)
     s.close()
     return response
+
+def http_req(host, get, port):
+    """Get JSON using `requests`
+
+    Parameters
+    ----------
+    host : str
+        host name (IP address)
+
+    get : str
+        the resource name
+
+    port : int
+        port number
+
+    Returns
+    -------
+    r : requests.models.Response
+    """
+    url = "http://"+host+":"+str(port)+get
+    r = requests.get(url, headers={'Accept': 'application/json'})
+    return r
