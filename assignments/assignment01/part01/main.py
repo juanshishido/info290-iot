@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import socket
 
 import requests
@@ -57,4 +59,5 @@ def http_req(host, get, port):
     """
     url = "http://"+host+":"+str(port)+get
     r = requests.get(url, headers={'Accept': 'application/json'})
+    print(r.text)
     return r
