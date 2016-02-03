@@ -70,3 +70,15 @@ def post_message(host, get, port, author, message):
     r = requests.post(url, headers={'Content-Type' : 'application/json'},
                       data=json.dumps(payload))
     return r
+
+
+if __name__ == '__main__':
+    host = '128.32.78.37'
+    get = '/posts'
+    port = 8084
+    author = 'bot'
+    message = 'executed from the command line'
+    print(http_raw(host, get, port))
+    print(http_raw(host, get, port, as_json=True))
+    print(http_req(host, get, port))
+    post_message(host, get, port, author, message)
