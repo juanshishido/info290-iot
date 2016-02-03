@@ -1,5 +1,6 @@
 from __future__ import print_function
 
+import json
 import socket
 
 import requests
@@ -22,7 +23,7 @@ def http_raw(host, get, port, as_json=False):
     Returns
     -------
     response : str
-        HTML representation of the resource
+        text representation of the resource
     """
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, port))
@@ -56,8 +57,16 @@ def http_req(host, get, port):
     Returns
     -------
     r : requests.models.Response
+        a Response object
     """
     url = "http://"+host+":"+str(port)+get
     r = requests.get(url, headers={'Accept': 'application/json'})
     print(r.text)
+    return r
+
+def post_message(host, get, port, author, message):
+    url = "http://"+host+":"+str(port)+get
+    payload = {'author' : author, 'message' : message}
+    r = requests.post(url, headers={'Content-Type' : 'application/json'},
+                      data=json.dumps(payload))
     return r

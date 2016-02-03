@@ -1,4 +1,4 @@
-from main import http_raw, http_req
+from main import http_raw, http_req, post_message
 
 
 def test_http_ok_content_type():
@@ -12,3 +12,9 @@ def test_http_ok_content_type():
 def test_get_json_with_requests():
     r = http_req('128.32.78.37', '/posts', 8084)
     assert r.status_code == 200 and 'application/json' in r.headers.values()
+
+def test_post_message():
+    author = 'JS'
+    message = 'nosetests test_main.py'
+    r = post_message('128.32.78.37', '/posts', 8084, author, message)
+    assert r.status_code == 201
